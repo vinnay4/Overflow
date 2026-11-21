@@ -24,7 +24,7 @@
 </head>
 <body>
 <h1>Evidence appendix · Milk boils over · Ubaal</h1>
-<p class="sub">Team Overflow · Vinay Chekuri EE22B026 (representative) · Vinnay Gupta ED22B073 · Atharva Chinchalkar BS22B010 · ID5060 · 21 Nov 2026. This appendix supports the six slides. It is not a second presentation. Tags: <span class="tag">SOURCE</span> literature, <span class="tag">MODEL</span> equations with stated assumptions, <span class="tag">LOGIC</span> synthetic software tests, <span class="tag">UNTESTED</span> not yet recorded in a kitchen.</p>
+<p class="sub">Team Overflow · Vinnay Gupta ED22B073 · Vinay Chekuri EE22B026 (representative) · Atharva Chinchalkar BS22B010 · ID5060 · 21 Nov 2026. This appendix supports the six slides. It is not a second presentation. Tags: <span class="tag">SOURCE</span> literature, <span class="tag">MODEL</span> equations with stated assumptions, <span class="tag">LOGIC</span> synthetic software tests, <span class="tag">UNTESTED</span> not yet recorded in a kitchen.</p>
 
 <h2>A1. Setup used by the model</h2>
 <p>No pot was measured for this build. The model assumes a steel pot, D = 14 cm, H = 10 cm, mass 0.35 kg; a 1.74 kW LPG burner at 68% (IS 4246); 500 mL milk from 8 °C; room 30 °C; bubble lifetime Σ = 0.6 + 4.0 = 4.6 s. <span class="tag">MODEL INPUTS, NOT MEASURED.</span> The home protocol (pot, ruler, 30 fps side video, 250 mL from the fridge) is in <code>09_HOME_TRIAL_KIT/TRIAL_PROTOCOL.md</code> and has not been run.</p>
@@ -80,17 +80,21 @@
 <h2>C6. Scores</h2>
 <p>Nine alternatives, weighted on the submitted constraints (unattended 30, no watching 15, cost 15, full boil 10, taste 10, clean 10, both stoves 5, we can test it 5). F = 85, H = 83, B = 81, then G 79, C 78, E 70, A 69, I 65, D 64. F wins 15 of 16 weight shifts of ±50%. Scores are judgements, not measurements. H is the backup if a real lead time is too short, and only if the disc’s effect is measured.</p>
 
+<h2>C7. A rim clip, drawn and not built</h2>
+<p>A clip that waits for the foam, then falls and clinks, is a late sensor. In the model the foam crosses the rim about 2.2 s after the first boil. The assumed response from the next room is 15 s, so the person loses. The milk itself does not give a useful motion either. Water density goes from about 999.8 kg/m³ at 8 °C to 958 kg/m³ at 100 °C, a swell of about 4%. On 500 mL in a 14 cm pot that is about 22 mL, or about 1.4 mm of rise. A latch that waits for expansion barely moves.</p>
+<p>The drawn device, called Rimclip only so the file has a name, does two other things. A notched stainless disc lies in the surface for the whole heat and tries to cut the skin, which is the milk-watcher idea (Kreiner 2015). A loose head on the same pin can tap an anvil when bubbles shake that disc. The tap is meant to use the same early stage as the kettle hiss. Whether it is loud enough in the next room is untested. Whether the disc shortens Σ enough for Π &lt; 1 is untested. The model’s disc factor of 0.45 is assumed, not fitted. Ubaal stays the selected rebuild: no new part, and in the model the cue is about 24 s before the boil. Rimclip is what we would bend if a phone were not allowed. Files: <code>10_RIMCLIP/rimclip.scad</code>, <code>rimclip.stl</code>, <code>rimclip_drawing.svg</code>. Stainless only. No plastic on a gas rim.</p>
+
 <h2>References used above</h2>
 <p>Muir, New Scientist, 30 Sep 2020. America’s Test Kitchen, “Preventing dairy from boiling over.” Pugh, <i>Bubble and Foam Chemistry</i>, CUP 2016, ch. 11. Singh, Lait 87 (2007) 413–423. Kamath, Webb and Deeth, J. Dairy Sci. 2011. Dannenberg and Kessler, J. Food Sci. 53 (1988) 258. Minim et al., J. Chem. Eng. Data 47 (2002) 1488. Kreiner, Univ. Ulm, 2015. Collections WA, milk watcher, 1938. Ondrejčák and Lumnitzer, Annals FEH 2014. Panasonic US 9,462,639 and US 9,386,635. MK News, 12 Mar 2026. BIS IS 4246:2002. Engineering ToolBox steam tables. MDN AnalyserNode. Full URLs: <code>01_RESEARCH/REFERENCES.md</code>, R1–R40.</p>
 
 <h2>AI use</h2>
-<p>We used Cursor and Grok to search and summarise the literature, draft the dimensional analysis, write the simulator, the Ubaal app and the analysis scripts, and draft these slides and this appendix. No kitchen observation, photograph, or trial row was generated. Model outputs are labelled estimates. Synthetic audio tests check software logic only. Citations below the slides trace to URLs in the reference list; the person submitting still has to open any source they are unsure of. Final weights and the decision to keep the detector thresholds unchanged are part of this build’s record, not a claim that a kitchen user study was done.</p>
+<p>We used Cursor and Grok to search and summarise the literature, draft the dimensional analysis, write the simulator, the Ubaal app and the analysis scripts, draft these slides and this appendix, and draft the Rimclip solid model. No kitchen observation, photograph, or trial row was generated. Model outputs are labelled estimates. Synthetic audio tests check software logic only. The clip is a design, not a test. Citations below the slides trace to URLs in the reference list; the person submitting still has to open any source they are unsure of. Final weights and the decision to keep the detector thresholds unchanged are part of this build’s record, not a claim that a kitchen user study was done.</p>
 
 <h2>Contributions</h2>
 <table>
   <tr><th>Member</th><th>Roll</th><th>Role in this project</th></tr>
+  <tr><td>Vinnay Gupta</td><td>ED22B073</td><td>Problem framing, first-principles write-up, alternatives, deck, this appendix, and the Rimclip design. The clip is not built.</td></tr>
   <tr><td>Vinay Chekuri (representative)</td><td>EE22B026</td><td>Ubaal detector: signal path, state machine, phone packaging, logic tests. Kitchen trials not yet run by anyone.</td></tr>
-  <tr><td>Vinnay Gupta</td><td>ED22B073</td><td>Problem framing, first-principles write-up, alternatives, deck and this appendix.</td></tr>
   <tr><td>Atharva Chinchalkar</td><td>BS22B010</td><td>Milk-foam science (whey, casein, Σ) and the trial protocol. Foam-decay fit and model calibration wait on a video.</td></tr>
   <tr><td>All</td><td></td><td>Five Whys, the choice of F, and review of what the model is allowed to claim.</td></tr>
 </table>

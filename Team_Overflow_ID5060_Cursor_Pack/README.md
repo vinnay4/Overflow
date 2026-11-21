@@ -1,6 +1,6 @@
 # Team Overflow · ID5060 First Principles Tools · Term Project pack
 **Problem:** milk boils over. **Solution:** **Ubaal (उबाल): a phone that listens for the pre-boil hiss and tells you to turn the flame to sim before the milk boils over.** "Listen, don't watch."
-Due **25 Nov 2026**. Team: Vinay Chekuri EE22B026 (rep.), Vinnay Gupta ED22B073, Atharva Chinchalkar BS22B010.
+Due **25 Nov 2026**. Team, listed as on the slides: Vinnay Gupta ED22B073, Vinay Chekuri EE22B026 (representative), Atharva Chinchalkar BS22B010. A designer’s brief for the six slides is `PRESENTATION_BRIEF.md`. A drawn, untested rim clip is in `10_RIMCLIP/`.
 
 ## Start here (for Cursor and for humans)
 1. Open this folder in Cursor. Tell it: *"Read README.md, 00_CONTEXT/*.md and 08_PROMPTS_FOR_CURSOR.md. Then run prompt P0."*

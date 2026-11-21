@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="980" height="560" fill="#FAF7F0"/>
+  <text x="28" y="36" font-size="22" font-weight="700" fill="#1F2A33">Rimclip — a captive disc on the rim, and a tap</text>
+  <text x="28" y="58" font-size="14" fill="#6b6357">Design drawing, millimetres. Not a tested prototype. Stainless only. No plastic on a gas rim.</text>
+
+  <!-- pot section -->
+  <path d="M80 120 h70 v250 h180 v-40 h8 v80 H80 z" fill="#f5f5f4" stroke="#44403c" stroke-width="3"/>
+  <text x="250" y="150" font-size="13" fill="#6b6357">rim</text>
+  <line x1="150" y1="330" x2="330" y2="330" stroke="#b45309" stroke-dasharray="5 4"/>
+  <text x="250" y="348" font-size="13" fill="#b45309">milk surface, ~67 below the rim for 500 mL in a 14 cm pot</text>
+
+  <!-- clip -->
+  <path d="M118 150 v-28 h22 v18" fill="none" stroke="#1F2A33" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M140 140 v175 h120" fill="none" stroke="#1F2A33" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="268" cy="322" r="28" fill="#fff" stroke="#1F2A33" stroke-width="4"/>
+  <path d="M250 308 h10 M262 296 v10 M278 308 h10 M290 320 v8" stroke="#C2410C" stroke-width="2"/>
+  <path d="M268 322 l34 -26" stroke="#C2410C" stroke-width="4"/>
+  <circle cx="304" cy="294" r="5" fill="#C2410C"/>
+  <rect x="292" y="250" width="8" height="22" fill="#1F2A33"/>
+
+  <text x="40" y="430" font-size="15" fill="#1F2A33">1 · Jaw grips the rim (slot 2.6). The arm stays out of the flame.</text>
+  <text x="40" y="454" font-size="15" fill="#1F2A33">2 · Notched disc (Ø40) lies in the surface the whole time and cuts the skin.</text>
+  <text x="40" y="478" font-size="15" fill="#1F2A33">3 · Loose head taps the anvil when bubbles shake the disc. That is the noise.</text>
+  <text x="40" y="510" font-size="14" fill="#6b6357">A latch that falls only when foam reaches it is the wrong trigger. Foam crosses the rim in about 2 s in the model.</text>
+  <text x="40" y="532" font-size="14" fill="#6b6357">Milk itself swells only about 1.4 mm from fridge to boil, so “expansion” is not enough motion either.</text>
+
+  <g font-size="14" fill="#1F2A33">
+    <text x="620" y="140" font-weight="700">Make from</text>
+    <text x="620" y="166">SS304 wire, 2.5–3 mm, one piece for jaw and arm</text>
+    <text x="620" y="190">SS304 disc, 40 mm × 1.2 mm, six notches, captive pin</text>
+    <text x="620" y="214">Loose striker on the same pin, head Ø5</text>
+    <text x="620" y="250" font-weight="700">Set for a 14 cm pot, 500 mL</text>
+    <text x="620" y="276">Drop of the arm, wire centre: 67</text>
+    <text x="620" y="300">Disc centre in from the rim slot: 52</text>
+    <text x="620" y="324">Disc Ø40 × 1.2, six notches, pin Ø2.2</text>
+    <text x="620" y="360" font-weight="700">What it does not do</text>
+    <text x="620" y="386">It has not been boiled.</text>
+    <text x="620" y="410">The tap may be too quiet next door.</text>
+    <text x="620" y="434">Breaking the skin may only delay the spill,</text>
+    <text x="620" y="456">the way a spoon does, unless Σ falls enough</text>
+    <text x="620" y="478">that Π drops under 1. That factor is unmeasured.</text>
+  </g>
+</svg>

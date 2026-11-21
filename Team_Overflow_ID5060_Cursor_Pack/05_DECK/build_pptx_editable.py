@@ -67,7 +67,7 @@ def build():
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
     prs.core_properties.title = "Team Overflow · Milk boils over · ID5060"
-    prs.core_properties.author = "Vinay Chekuri, Vinnay Gupta, Atharva Chinchalkar"
+    prs.core_properties.author = "Vinnay Gupta, Vinay Chekuri, Atharva Chinchalkar"
 
     s = blank(prs)
     box(s, 0.5, 0.28, 8, 0.3, "ID5060  ·  FIRST PRINCIPLES TOOLS  ·  TERM PROJECT", 12, True, ACCENT)
@@ -87,7 +87,7 @@ def build():
     card(s, 8.0, 0.85, 4.8, 5.4)
     box(s, 8.2, 1.05, 4.4, 1.3, "Diagram, not a photograph.\nFoam crosses the rim because bubbles outlive the steam.\nThe eye sees this late.", 16)
     box(s, 8.2, 2.6, 4.4, 1.6, "Π = Σ · Qv / Vfree\nΠ > 1 means the steady foam is taller than the headroom.", 16, False, BLUE)
-    box(s, 8.2, 4.4, 4.4, 1.5, "Team Overflow\nVinay Chekuri · EE22B026 (representative)\nVinnay Gupta · ED22B073\nAtharva Chinchalkar · BS22B010", 15, False, INK, "Georgia")
+    box(s, 8.2, 4.4, 4.4, 1.5, "Team Overflow\nVinnay Gupta · ED22B073\nVinay Chekuri · EE22B026 (representative)\nAtharva Chinchalkar · BS22B010", 15, False, INK, "Georgia")
     notes(s, "The kitchen baseline is not recorded, n = 0. The 2.2 seconds is a model estimate for an assumed 14 cm pot. The picture on the HTML deck is a diagram, not our photograph. Target is zero boil-overs in 10 unattended trials.")
 
     s = blank(prs)
@@ -152,9 +152,9 @@ def build():
     card(s, 8.8, 1.45, 4.0, 1.7)
     box(s, 8.95, 1.55, 3.7, 0.3, "COST", 11, True, MUTED)
     box(s, 8.95, 1.9, 3.7, 1.0, "₹0 for the app. Optional disc ₹295, seen 21 Nov 2026. Under ₹300.", 16)
-    box(s, 0.5, 3.35, 12.3, 2.0, "Trade-offs. The 92 °C rule delays the boil by about 26 s in the model; Ubaal’s later cue delays it by about 3 s. The phone has to sit near the pot. On gas, a person still turns the knob. False alarms from a fan, a whistle, or a second pot are possible and unmeasured.\n\nLimits. One assumed pot. Σ was not fitted. Synthetic tests do not prove the physics. The primary outcome is untested.\n\nNext. Record the trials. Then close the loop on induction so PRE-BOIL cuts the power with no one in the room.", 15)
+    box(s, 0.5, 3.35, 12.3, 2.0, "Trade-offs. The 92 °C rule delays the boil by about 26 s in the model; Ubaal’s later cue delays it by about 3 s. The phone has to sit near the pot. On gas, a person still turns the knob. False alarms from a fan, a whistle, or a second pot are possible and unmeasured.\n\nLimits. One assumed pot. Σ was not fitted. Synthetic tests do not prove the physics. The primary outcome is untested. A clip that falls only when the foam is up is too late (about 2 s, MODEL). A surface disc with a tapping head is drawn and untested. Ubaal stays the choice.\n\nNext. Record the trials. Then close the loop on induction so PRE-BOIL cuts the power with no one in the room.", 14)
     box(s, 0.5, 5.5, 12.3, 1.6, "Key sources. Muir, New Scientist 2020. America’s Test Kitchen. Pugh 2016 (Bikerman Σ). Singh, Lait 2007. Kamath et al., J. Dairy Sci. 2011. Kreiner, Ulm 2015. Annals FEH 2014 (kettle acoustics). Panasonic US 9,462,639 and 9,386,635. MK News, 12 Mar 2026. BIS IS 4246:2002. Engineering ToolBox. Full list and the AI declaration are in the appendix.", 13)
-    notes(s, "Do not call 24 seconds a measured lead. Cost is zero plus an optional disc. Close on the untested primary outcome and the induction next step.")
+    notes(s, "Do not call 24 seconds a measured lead. Cost is zero plus an optional disc. A falling clip at the rim loses the two-second race. Rimclip, drawn in 10_RIMCLIP, is untested and does not replace Ubaal. Close on the untested primary outcome and the induction next step.")
 
     out = os.path.join(HERE, "export", "Team_Overflow_ID5060_slides_editable.pptx")
     os.makedirs(os.path.dirname(out), exist_ok=True)

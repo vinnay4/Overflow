@@ -11,6 +11,8 @@ Submission files, once exported:
 - `Team_Overflow_ID5060_Cursor_Pack/06_APPENDIX/export/Team_Overflow_ID5060_appendix.pdf`
 - `Team_Overflow_ID5060_Cursor_Pack/07_VIDEO/Ubaal_demo.mp4`
 
-Team: Vinay Chekuri EE22B026 (representative), Vinnay Gupta ED22B073, Atharva Chinchalkar BS22B010.
+Team, as on the slides: Vinnay Gupta ED22B073, Vinay Chekuri EE22B026 (representative), Atharva Chinchalkar BS22B010.
+
+A self-contained brief for a presentation designer is `Team_Overflow_ID5060_Cursor_Pack/PRESENTATION_BRIEF.md`. The drawn rim clip (not built, not tested) is `Team_Overflow_ID5060_Cursor_Pack/10_RIMCLIP/`.
 
 The kitchen trials are not in this repository. Model numbers are estimates. The deck says so on slides 5 and 6.

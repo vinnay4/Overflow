@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#1F2A33" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>Ubaal · listen, don't watch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="kicker">TEAM OVERFLOW · ID5060</div>
+    <h1>Ubaal <span>उबाल</span></h1>
+    <p>Put your phone about 30–50 cm from the pot, screen up and away from the flame. Press <b>Start</b> <em>before</em> you light the stove, and Ubaal will tell you when to turn the flame down.</p>
+  </header>
+
+  <section class="setup" id="setup">
+    <label>Stove <select id="stove"><option value="gas">Gas</option><option value="induction">Induction</option></select></label>
+    <label><input type="checkbox" id="disc" /> Milk-watcher disc in the pot</label>
+    <label><input type="checkbox" id="speak" checked /> Spoken alert</label>
+    <label>Trial ID <input id="trial" placeholder="e.g. T07-app" size="10" /></label>
+  </section>
+
+  <section class="status">
+    <div id="ring" class="ring idle"><div id="state">Ready</div><div id="clock">00:00</div></div>
+    <div id="msg" class="msg">Press Start, then light the stove.</div>
+    <div class="buttons">
+      <button id="start" class="primary">Start listening</button>
+      <button id="stop" disabled>Stop &amp; save</button>
+    </div>
+  </section>
+
+  <section class="labels">
+    <div class="hint">Ground truth: tap these at the moment you see each event. This is what the trial is scored against.</div>
+    <button data-label="stove_on">Stove on</button>
+    <button data-label="first_bubble">First bubble</button>
+    <button data-label="foam_rising">Foam rising</button>
+    <button data-label="knob_down">Knob turned down</button>
+    <button data-label="overflow" class="danger">Overflow!</button>
+    <button data-label="full_boil">Full boil held</button>
+  </section>
+
+  <section class="viz">
+    <canvas id="spec" height="160"></canvas>
+    <canvas id="levels" height="140"></canvas>
+    <div class="legend"><span class="l1">hiss 150–1000 Hz</span><span class="l2">deep bubbling 40–150 Hz</span><span class="l3">click rate</span></div>
+  </section>
+
+  <section class="log"><h3>Events</h3><ol id="events"></ol></section>
+  <footer>Ubaal runs entirely on this phone. No audio leaves the device. Recording and CSVs are saved only when you press Stop &amp; save. Thresholds are starting guesses: see ALGORITHM.md.</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

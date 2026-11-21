@@ -1,0 +1,20 @@
+:root{--bg:#FAF7F0;--ink:#1F2A33;--accent:#C2410C;--ok:#15803d;--warn:#d97706;--bad:#b91c1c;--line:#e8e1d3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;padding:16px;max-width:720px;margin:auto}
+.kicker{color:var(--accent);font-weight:800;font-size:12px;letter-spacing:.08em}
+h1{font-family:Georgia,serif;font-size:40px;margin:4px 0}h1 span{font-size:26px;color:var(--accent)}
+.setup{display:flex;flex-wrap:wrap;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:14px}
+.status{text-align:center;margin:18px 0}
+.ring{width:210px;height:210px;border-radius:50%;margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;border:14px solid #d6d3d1;transition:all .4s}
+.ring #state{font-weight:800;font-size:22px}.ring #clock{font-family:ui-monospace,monospace;font-size:20px;opacity:.7}
+.ring.CALIBRATING{border-color:#a8a29e}.ring.LISTENING{border-color:var(--ok)}
+.ring.PRE_BOIL{border-color:var(--warn);animation:pulse 1s infinite}.ring.BOILING{border-color:var(--bad);animation:pulse .5s infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.msg{font-size:18px;font-weight:600;margin:12px 0;min-height:2.6em}
+.buttons button,.labels button{font-size:16px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;margin:4px;cursor:pointer}
+button.primary{background:var(--ink);color:#fff}button.danger{border-color:var(--bad);color:var(--bad)}
+.labels{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.hint{font-size:12px;color:#6b6357;margin-bottom:6px}
+.viz canvas{width:100%;background:#111;border-radius:10px;margin-top:10px}
+.legend{font-size:12px;display:flex;gap:12px}.l1{color:#f59e0b}.l2{color:#60a5fa}.l3{color:#f43f5e}
+.log ol{font-size:13px;font-family:ui-monospace,monospace}
+footer{font-size:12px;color:#6b6357;margin-top:24px}

@@ -1,0 +1,2 @@
+{ "name": "Ubaal — boil-over alert", "short_name": "Ubaal", "start_url": "./index.html", "display": "standalone",
+  "background_color": "#FAF7F0", "theme_color": "#1F2A33", "icons": [] }

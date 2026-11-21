@@ -1,0 +1,9 @@
+criterion,weight,why
+C1_prevents_unattended,30,Primary outcome in our submitted deck: boil-overs in 10 unattended trials (target zero)
+C2_no_continuous_watching,15,Objective: no one has to watch the pot
+C3_full_boil_reached,10,Constraint: milk must still reach a full boil
+C4_taste_unchanged,10,Constraint: no change in taste
+C5_easy_clean,10,Constraint: easy to clean
+C6_cost_le_300,15,Constraint: under Rs 300
+C7_gas_and_induction,5,Setting: gas or induction at home
+C8_testable_by_25Nov_no_hardware,5,Team reality: placements and no lab; must be testable in software or one evening

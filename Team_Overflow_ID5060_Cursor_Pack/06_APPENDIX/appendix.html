@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Team Overflow · ID5060 · Evidence appendix</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm 12mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font: 10pt/1.32 Georgia, "Liberation Serif", serif; color: #1F2A33; }
+  h1 { font-size: 14.5pt; line-height: 1.15; margin: 0 0 2px; }
+  h2 { font-size: 11pt; margin: 8px 0 2px; color: #C2410C; page-break-after: avoid; }
+  p { margin: 2px 0 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 2px 0 6px; }
+  th, td { border-bottom: 0.4pt solid #e8e1d3; padding: 2px 4px; text-align: left; vertical-align: top; font-size: 8.6pt; }
+  th { font-size: 8pt; letter-spacing: 0.03em; color: #6b6357; }
+  .sub { color: #6b6357; font-size: 9pt; margin-bottom: 6px; }
+  .tag { font-family: "Liberation Sans", sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 0.04em; }
+  code { font-family: "Liberation Mono", ui-monospace, monospace; font-size: 8pt; }
+  ul { margin: 2px 0 4px 16px; padding: 0; }
+  li { margin: 0 0 1px; }
+  a { color: #1d4ed8; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>Evidence appendix · Milk boils over · Ubaal</h1>
+<p class="sub">Team Overflow · Vinnay Gupta ED22B073 · Vinay Chekuri EE22B026 (representative) · Atharva Chinchalkar BS22B010 · ID5060 · 21 Nov 2026. This appendix supports the six slides. It is not a second presentation. Tags: <span class="tag">SOURCE</span> literature, <span class="tag">MODEL</span> equations with stated assumptions, <span class="tag">LOGIC</span> synthetic software tests, <span class="tag">UNTESTED</span> not yet recorded in a kitchen.</p>
+
+<h2>A1. Setup used by the model</h2>
+<p>No pot was measured for this build. The model assumes a steel pot, D = 14 cm, H = 10 cm, mass 0.35 kg; a 1.74 kW LPG burner at 68% (IS 4246); 500 mL milk from 8 °C; room 30 °C; bubble lifetime Σ = 0.6 + 4.0 = 4.6 s. <span class="tag">MODEL INPUTS, NOT MEASURED.</span> The home protocol (pot, ruler, 30 fps side video, 250 mL from the fridge) is in <code>09_HOME_TRIAL_KIT/TRIAL_PROTOCOL.md</code> and has not been run.</p>
+
+<h2>A2. Observations and what supports them</h2>
+<table>
+  <tr><th>Claim</th><th>Status</th><th>Where it comes from</th></tr>
+  <tr><td>Water at a full boil does not climb out; milk foams over.</td><td>SOURCE, not re-filmed by us</td><td>Muir, New Scientist, 2020; America’s Test Kitchen. Our October problem deck stated it. No new video.</td></tr>
+  <tr><td>A skin forms as milk heats. Whey denatures above about 70–75 °C.</td><td>SOURCE</td><td>Singh, Lait 87 (2007) 413; Rowat lab, Soft Matter 2017. Not photographed here.</td></tr>
+  <tr><td>Foam then crosses the rim in about 2.2 s.</td><td>MODEL</td><td>ODE: first boil at 178 s, overflow at 180 s, for the assumed pot. Kitchen timing is untested.</td></tr>
+  <tr><td>A kettle is loudest at 60–70 °C and quieter by about 95 °C, in a band near 100 Hz–1 kHz.</td><td>SOURCE, water kettle</td><td>Ondrejčák and Lumnitzer, Annals FEH 2014; subcooled-boiling notes. Milk in a pot is untested.</td></tr>
+  <tr><td>Spill volume, cleanup time, flame-out, taste, human response.</td><td>UNTESTED</td><td>No trial log. Response time in the model is an assumption of 15 s.</td></tr>
+</table>
+<p>The October line “the skin traps the bubbles” is too strong. The working claim is that proteins give bubbles a lifetime Σ, and overflow needs Σ · Q<sub>v</sub> &gt; V<sub>free</sub> (Bikerman; Pugh 2016). <span class="tag">SOURCE + MODEL.</span></p>
+
+<h2>A3. Baseline trials</h2>
+<p>Kitchen baseline: <b>n = 0</b>. There is no <code>trials.csv</code> of real runs, and example rows are not reported as data. The model baseline, same assumptions as A1, overflows. It is not a substitute for the trial.</p>
+
+<h2>A4. Assumptions checked on paper, not in a pot</h2>
+<table>
+  <tr><th></th><th>Familiar belief</th><th>What we can say now</th></tr>
+  <tr><td>A1</td><td>The skin alone causes it.</td><td>Rejected as the sole cause. Overflow is lifetime × steam rate against headroom. <span class="tag">MODEL</span></td></tr>
+  <tr><td>A2</td><td>A bigger pot solves it.</td><td>At full flame, Π is 3.9 at 14 cm, 1.5 at 20 cm, and 1.0 at 24 cm. A 20 cm pot still overflows in the ODE (206 s). About 24 cm keeps foam near 81% of the headroom. <span class="tag">MODEL</span> Matches the direction of the ATK “much larger pan” result. <span class="tag">SOURCE</span></td></tr>
+  <tr><td>A3</td><td>Someone must watch.</td><td>Untested. The rebuild replaces the eye with a microphone. No unattended trial yet.</td></tr>
+  <tr><td>A4</td><td>A low flame always works.</td><td>Only if Π &lt; 1 when the boil arrives. Net power must be under about 305 W in the 14 cm pot (Π = 1). <span class="tag">MODEL</span></td></tr>
+  <tr><td>A5–A8</td><td>Milk hisses like a kettle; a phone at 30–50 cm hears it; sim still reaches a full boil; a disc cuts Σ by ×0.45.</td><td>All untested. The disc factor is an assumption. Do not read the model’s “disc prevents overflow” as a measurement.</td></tr>
+</table>
+
+<h2>C1. Magnify</h2>
+<p>ρ<sub>liquid</sub>/ρ<sub>steam</sub> = 958/0.598 = 1602 at 100 °C (Engineering ToolBox). Net power = 1740 W × 0.68 = 1183 W (IS 4246). Water boiled = 1183/2.257×10<sup>6</sup> = 0.524 g/s. Steam = 0.524×10<sup>−3</sup>/0.598 = 0.877 L/s. Headspace of the assumed pot: π(0.14)<sup>2</sup>/4 × 0.10 − 5×10<sup>−4</sup> = 1.04 L. If no bubble bursts, that headspace fills in 1.19 s. <span class="tag">SOURCE → MODEL.</span></p>
+
+<h2>C2. Buckingham π</h2>
+<p>Variables H<sub>e</sub> [L], Σ [T], Q<sub>v</sub> [L<sup>3</sup>/T], A [L<sup>2</sup>], h<sub>head</sub> [L]. k = 5, r = 2, so 3 groups: π<sub>1</sub> = H<sub>e</sub>/h<sub>head</sub>, π<sub>2</sub> = Σ Q<sub>v</sub>/(A h<sub>head</sub>) = Π, π<sub>3</sub> = A/h<sub>head</sub><sup>2</sup>. Bikerman’s H<sub>e</sub> = Σ U<sub>g</sub> makes π<sub>1</sub> = π<sub>2</sub>, so a steady overflow means Π &gt; 1. With Σ = 4.6 s and the numbers in C1, Π = 4.6 × 8.77×10<sup>−4</sup> / 1.04×10<sup>−3</sup> = 3.88 (slides round this to 3.9). <span class="tag">MODEL.</span></p>
+
+<h2>C3. Scale and the limit</h2>
+<p>Π at full flame / at the model’s low power: 12 cm 6.4/1.3, 14 cm 3.9/0.78, 16 cm 2.7/0.54, 20 cm 1.5/0.31, 24 cm 1.0/0.20. Closed-form time from steady steaming to the rim, t* = −τ ln(1 − 1/Π) with τ = Σ×0.85: 18 s at Π = 1.01, 1.1 s at Π = 4, and never if Π ≤ 1. The ODE is slower to the rim (2.2 s after first boil) because the skin and the vapour fraction are still rising. <span class="tag">MODEL.</span></p>
+
+<h2>C4. What the model does with each alternative</h2>
+<table>
+  <tr><th>Case</th><th>First boil</th><th>Overflow</th><th>Alarm lead</th><th>Read it as</th></tr>
+  <tr><td>Baseline, full flame</td><td>178 s</td><td>180 s</td><td>—</td><td>Crosses the rim. MODEL</td></tr>
+  <tr><td>F · Ubaal, cue 88 °C, person takes 15 s</td><td>181 s</td><td>none</td><td>24 s</td><td>Foam peaks near 52% of headroom. MODEL</td></tr>
+  <tr><td>F′ · cue at 95 °C</td><td>178 s</td><td>180 s</td><td>8 s</td><td>8 s &lt; 15 s response, so the knob never moves in time. MODEL</td></tr>
+  <tr><td>B · auto low at 92 °C</td><td>204 s</td><td>none</td><td>—</td><td>Boil is about 26 s later than baseline. MODEL</td></tr>
+  <tr><td>A · 20 cm pot</td><td>179 s</td><td>206 s</td><td>—</td><td>Delays the spill. Does not prevent it. MODEL</td></tr>
+  <tr><td>H · app + disc</td><td>181 s</td><td>none</td><td>24 s</td><td>Disc multiplier ×0.45 is assumed, not fitted.</td></tr>
+</table>
+<p>h<sub>loss</sub> = 12 W/m<sup>2</sup>K was not tuned to a measured time-to-boil, because there is no measured time. The 178 s heating time is an output, not a calibration target. The model is 0-D, Σ jumps only with the skin index, and g(T) is a smooth stand-in for the onset of boiling.</p>
+
+<h2>C5. Detector logic, not a milk result</h2>
+<p>On synthetic audio the state machine did three things, and only these things. A rising then fading hiss produced PRE-BOIL at 117 s and BOILING at 138 s. A scripted rattle produced BOILING. Steady noise produced no alarm. <span class="tag">LOGIC, 3/3.</span> The 21 s gap is a property of the made-up signal. It is not a lead time on milk. Thresholds were not searched. v1 stays at drop 4 dB, peak hold 5 s, calibration 8 s (<code>DEFAULT_CFG</code> in <code>core.js</code>). A real refinement needs one noise-only recording and one boil, then a search of dropDb ∈ {2,3,4,5} and minPeakHoldS ∈ {2,3,5} for the longest median lead with zero false alarms. That search was not run. See <code>03_DETECTOR_APP/REFINEMENT.md</code>.</p>
+
+<h2>C6. Scores</h2>
+<p>Nine alternatives, weighted on the submitted constraints (unattended 30, no watching 15, cost 15, full boil 10, taste 10, clean 10, both stoves 5, we can test it 5). F = 85, H = 83, B = 81, then G 79, C 78, E 70, A 69, I 65, D 64. F wins 15 of 16 weight shifts of ±50%. Scores are judgements, not measurements. H is the backup if a real lead time is too short, and only if the disc’s effect is measured.</p>
+
+<h2>C7. A rim clip, drawn and not built</h2>
+<p>A clip that waits for the foam, then falls and clinks, is a late sensor. In the model the foam crosses the rim about 2.2 s after the first boil. The assumed response from the next room is 15 s, so the person loses. The milk itself does not give a useful motion either. Water density goes from about 999.8 kg/m³ at 8 °C to 958 kg/m³ at 100 °C, a swell of about 4%. On 500 mL in a 14 cm pot that is about 22 mL, or about 1.4 mm of rise. A latch that waits for expansion barely moves.</p>
+<p>The drawn device, called Rimclip only so the file has a name, does two other things. A notched stainless disc lies in the surface for the whole heat and tries to cut the skin, which is the milk-watcher idea (Kreiner 2015). A loose head on the same pin can tap an anvil when bubbles shake that disc. The tap is meant to use the same early stage as the kettle hiss. Whether it is loud enough in the next room is untested. Whether the disc shortens Σ enough for Π &lt; 1 is untested. The model’s disc factor of 0.45 is assumed, not fitted. Ubaal stays the selected rebuild: no new part, and in the model the cue is about 24 s before the boil. Rimclip is what we would bend if a phone were not allowed. Files: <code>10_RIMCLIP/rimclip.scad</code>, <code>rimclip.stl</code>, <code>rimclip_drawing.svg</code>. Stainless only. No plastic on a gas rim.</p>
+
+<h2>References used above</h2>
+<p>Muir, New Scientist, 30 Sep 2020. America’s Test Kitchen, “Preventing dairy from boiling over.” Pugh, <i>Bubble and Foam Chemistry</i>, CUP 2016, ch. 11. Singh, Lait 87 (2007) 413–423. Kamath, Webb and Deeth, J. Dairy Sci. 2011. Dannenberg and Kessler, J. Food Sci. 53 (1988) 258. Minim et al., J. Chem. Eng. Data 47 (2002) 1488. Kreiner, Univ. Ulm, 2015. Collections WA, milk watcher, 1938. Ondrejčák and Lumnitzer, Annals FEH 2014. Panasonic US 9,462,639 and US 9,386,635. MK News, 12 Mar 2026. BIS IS 4246:2002. Engineering ToolBox steam tables. MDN AnalyserNode. Full URLs: <code>01_RESEARCH/REFERENCES.md</code>, R1–R40.</p>
+
+<h2>AI use</h2>
+<p>We used Cursor and Grok to search and summarise the literature, draft the dimensional analysis, write the simulator, the Ubaal app and the analysis scripts, draft these slides and this appendix, and draft the Rimclip solid model. No kitchen observation, photograph, or trial row was generated. Model outputs are labelled estimates. Synthetic audio tests check software logic only. The clip is a design, not a test. Citations below the slides trace to URLs in the reference list; the person submitting still has to open any source they are unsure of. Final weights and the decision to keep the detector thresholds unchanged are part of this build’s record, not a claim that a kitchen user study was done.</p>
+
+<h2>Contributions</h2>
+<table>
+  <tr><th>Member</th><th>Roll</th><th>Role in this project</th></tr>
+  <tr><td>Vinnay Gupta</td><td>ED22B073</td><td>Problem framing, first-principles write-up, alternatives, deck, this appendix, and the Rimclip design. The clip is not built.</td></tr>
+  <tr><td>Vinay Chekuri (representative)</td><td>EE22B026</td><td>Ubaal detector: signal path, state machine, phone packaging, logic tests. Kitchen trials not yet run by anyone.</td></tr>
+  <tr><td>Atharva Chinchalkar</td><td>BS22B010</td><td>Milk-foam science (whey, casein, Σ) and the trial protocol. Foam-decay fit and model calibration wait on a video.</td></tr>
+  <tr><td>All</td><td></td><td>Five Whys, the choice of F, and review of what the model is allowed to claim.</td></tr>
+</table>
+<p>Code and text: repository <code>vinnay4/Overflow</code>, folder <code>Team_Overflow_ID5060_Cursor_Pack</code>. Raw kitchen video is not in the repo because it was not recorded. App on GitHub Pages, once enabled: site root is Ubaal, <code>/sim/</code> is the model.</p>
+</body>
+</html>

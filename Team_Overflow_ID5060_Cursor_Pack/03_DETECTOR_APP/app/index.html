@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#1F2A33" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" />
   <title>Ubaal · listen, don't watch</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,6 +20,7 @@
     <label>Stove <select id="stove"><option value="gas">Gas</option><option value="induction">Induction</option></select></label>
     <label><input type="checkbox" id="disc" /> Milk-watcher disc in the pot</label>
     <label><input type="checkbox" id="speak" checked /> Spoken alert</label>
+    <label><input type="checkbox" id="hindi" /> Hindi voice (हिन्दी)</label>
     <label>Trial ID <input id="trial" placeholder="e.g. T07-app" size="10" /></label>
   </section>
 
@@ -27,6 +29,7 @@
     <div id="msg" class="msg">Press Start, then light the stove.</div>
     <div class="buttons">
       <button id="start" class="primary">Start listening</button>
+      <button id="testAlarm" type="button">Test alarm</button>
       <button id="stop" disabled>Stop &amp; save</button>
     </div>
   </section>

@@ -1,0 +1,10 @@
+node_modules/
+Team_Overflow_ID5060_Cursor_Pack/02_SIMULATION/app/dist/
+**/__pycache__/
+.venv/
+*.pyc
+Team_Overflow_ID5060_Cursor_Pack/04_ANALYSIS/figures/EXAMPLE_*
+Team_Overflow_ID5060_Cursor_Pack/07_VIDEO/raw/
+test-results/
+playwright-report/
+_site/

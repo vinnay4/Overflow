@@ -1,0 +1,47 @@
+name: Publish Ubaal and the simulator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Team_Overflow_ID5060_Cursor_Pack/02_SIMULATION/app/package-lock.json
+      - name: Test and build the simulator
+        working-directory: Team_Overflow_ID5060_Cursor_Pack/02_SIMULATION/app
+        run: npm ci && npm test && npm run build
+      - name: Test the detector
+        working-directory: Team_Overflow_ID5060_Cursor_Pack/03_DETECTOR_APP
+        run: npm test
+      - name: Assemble the Pages site
+        run: |
+          rm -rf _site
+          mkdir -p _site/sim
+          cp -a Team_Overflow_ID5060_Cursor_Pack/03_DETECTOR_APP/app/. _site/
+          cp -a Team_Overflow_ID5060_Cursor_Pack/02_SIMULATION/app/dist/. _site/sim/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

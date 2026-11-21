@@ -9,7 +9,16 @@ It also works as the team's **data-logging instrument**. One tap per event (Stov
 ## Run it on a phone (5 minutes)
 The microphone needs **https or localhost**. Options:
 1. **Laptop + phone on the same Wi-Fi (fastest):** `npm run serve` (port 5173). Then on the laptop run `npx --yes localtunnel --port 5173` or use `ngrok http 5173` and open the https URL on the phone.
-2. **GitHub Pages (best for the demo and the video):** push `app/` to a repo and enable Pages. You get a permanent https URL, and the PWA can be "Added to Home screen".
+2. **GitHub Pages (best for the demo and the video).** The workflow `.github/workflows/pages.yml` publishes `app/` at the site root and the built simulator at `/sim/`. After it is enabled (Settings → Pages → GitHub Actions), the phone URL is `https://vinnay4.github.io/Overflow/` and the model is `https://vinnay4.github.io/Overflow/sim/`. From a clean checkout:
+
+```bash
+git checkout main
+git pull origin main
+cd Team_Overflow_ID5060_Cursor_Pack/02_SIMULATION/app && npm ci && npm test && npm run build
+cd ../../03_DETECTOR_APP && npm test
+```
+
+Pushing `main` runs the workflow. Until Pages is enabled, serve locally: `npm run serve` in `03_DETECTOR_APP` (port 5173). The microphone needs https or localhost.
 3. **Laptop only:** open http://localhost:5173 in Chrome and put the laptop ~50 cm from the stove.
 
 **Use:** set Stove, Trial ID and Disc. Press **Start listening** *before* lighting the stove (8 s calibration of kitchen noise), then light the stove and walk away. Keep the screen on (the app requests a wake lock). Put the phone 30–60 cm from the pot, away from steam.

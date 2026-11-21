@@ -31,7 +31,7 @@ Source: `source_pdfs/01_Project_Brief_and_Rubric.pdf` (3 pages). The text versio
 # What Team Overflow already submitted (problem statement, 10 Oct stage)
 Source: `source_pdfs/02_Team_Overflow_Submitted_Problem_Deck.pdf`
 
-**Team Overflow:** Vinay Chekuri EE22B026 (representative), Vinnay Gupta ED22B073, Atharva Chinchalkar BS22B010.
+**Team Overflow, as named on the October problem deck:** Vinay Chekuri EE22B026 (representative), Vinnay Gupta ED22B073, Atharva Chinchalkar BS22B010. The final slides and appendix list Vinnay Gupta ED22B073 first. Vinay Chekuri remains the representative named in October.
 
 **Hook:** "Milk boils over. Every kitchen knows it." Milk sits calm, then rises over the rim in seconds. The usual fixes all depend on someone standing guard.
 

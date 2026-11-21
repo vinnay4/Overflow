@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Ubaal: phone web app that listens for the pre-boil sound of milk. No build step. Serve app/ over https or localhost.",
   "scripts": {
-    "test": "node --test test/synthetic.test.mjs",
+    "test": "node --test test/*.test.mjs",
     "serve": "npx --yes serve app -l 5173"
   }
 }

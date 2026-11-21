@@ -37,6 +37,7 @@ tr.pick td{background:#fff7ed;font-weight:700}
 .foot{position:absolute;left:84px;right:84px;bottom:26px;font-size:14px;color:var(--muted);display:flex;justify-content:space-between}
 .notes{display:none}
 .nav{position:fixed;bottom:12px;right:16px;color:#bbb;font:13px system-ui;z-index:9}
+body.shot .nav{display:none}
 @media print{
   @page{size:1920px 1080px;margin:0}
   html,body{background:var(--bg)}

@@ -10,7 +10,7 @@
   <header>
     <div class="kicker">ID5060 · FIRST PRINCIPLES TOOLS · TEAM OVERFLOW</div>
     <h1>Why milk boils over, and what actually stops it</h1>
-    <p class="lede">An interactive <b>model</b> of a pot of milk on an Indian stove. Every number it shows is an <b>estimate</b> from the equations and the labelled assumptions, not a measurement. Our real trial data is in the appendix.</p>
+    <p class="lede">An interactive <b>model</b> of a pot of milk on an Indian stove. Every number it shows is an <b>estimate</b> from the equations and the labelled assumptions, not a measurement. This build has no kitchen trials yet. The appendix says what was and was not measured.</p>
     <div class="banner">MODEL — NOT MEASURED DATA. Values tagged <span class="tag a">ASSUMPTION</span> must be replaced with values fitted to our own baseline trials.</div>
     <nav>
       <button data-tab="sim" class="on">1 · Simulate</button>
@@ -30,7 +30,13 @@
             <button id="play">▶ Play</button>
             <label>speed <select id="speed"><option>5</option><option selected>10</option><option>20</option><option>40</option></select>×</label>
             <input type="range" id="scrub" min="0" max="1000" value="1000" />
+            <button id="exportPng" type="button">Export charts PNG</button>
           </div>
+          <div class="playbar importbar">
+            <label class="filelab">Import my trial <input id="importTrial" type="file" accept=".csv,text/csv" /></label>
+            <select id="trialPick" hidden></select>
+          </div>
+          <p id="importNote" class="importnote">Green marks appear only after you import a real trials.csv. Example rows are ignored.</p>
           <div id="outcome" class="outcome"></div>
         </div>
         <div class="panel charts">
@@ -57,7 +63,7 @@
       <div class="panel prose" id="assump"></div>
     </section>
   </main>
-  <footer>Team Overflow · Vinay Chekuri (EE22B026) · Vinnay Gupta (ED22B073) · Atharva Chinchalkar (BS22B010) · Model and code drafted with AI assistance; see AI_USE_DECLARATION.md.</footer>
+  <footer>Team Overflow · Vinnay Gupta (ED22B073) · Vinay Chekuri (EE22B026) · Atharva Chinchalkar (BS22B010) · Model and code drafted with AI assistance; see AI_USE_DECLARATION.md.</footer>
   <script type="module" src="./src/main.ts"></script>
 </body>
 </html>

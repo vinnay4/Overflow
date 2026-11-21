@@ -36,10 +36,30 @@ for sid, label, kw in SCEN:
     if sid in ("baseline", "wide", "lowflame", "detector", "detector_late", "hybrid"):
         ax.plot(t, fill * 100, lw=2.2 if sid == "hybrid" else 1.5, label=label)
 ax.axhline(100, color=style.RED, ls="--"); ax.text(5, 103, "rim", color=style.RED)
-ax.set_xlim(140, 260); ax.set_ylim(0, 125)
+ax.set_xlim(150, 230); ax.set_ylim(0, 130)
 ax.set_xlabel("time since stove on (s)"); ax.set_ylabel("foam height as % of headroom")
-ax.set_title("Which fixes keep foam below the rim? (model)"); ax.legend(frameon=False, fontsize=9, loc="upper left"); style.stamp(ax)
+ax.set_title("Which fixes keep foam below the rim? (model)")
+ax.legend(frameon=False, fontsize=8, loc="upper left")
+style.stamp(ax)
 fig.tight_layout(); fig.savefig("figures/fig_scenarios_foam.png"); plt.close(fig)
+
+# Two-scenario figure for the deck: baseline vs chosen app. Still a model.
+fig, ax = plt.subplots(figsize=(7.4, 4.0))
+for kw, label, color, lw in (
+    ({}, "Baseline: full flame, nobody watching", style.RED, 2.2),
+    (dict(detector=True), "F · Ubaal: cue at 88 °C, 15 s to turn down", style.GREEN, 2.6),
+):
+    out, ev = simulate(Params(stop_on_overflow=False, **kw))
+    t = np.array(out["t"]); head = Params(**kw).h_head
+    ax.plot(t, np.minimum(np.array(out["H"]) / head, 1.25) * 100, color=color, lw=lw, label=label)
+ax.axhline(100, color=style.INK, ls="--", lw=1)
+ax.text(151, 104, "rim", color=style.INK, fontsize=10)
+ax.set_xlim(150, 220); ax.set_ylim(0, 130)
+ax.set_xlabel("time since stove on (s)"); ax.set_ylabel("foam height as % of headroom")
+ax.set_title("Model only: same assumed pot, with and without Ubaal")
+ax.legend(frameon=False, fontsize=9, loc="upper left")
+style.stamp(ax)
+fig.tight_layout(); fig.savefig("figures/fig_model_before_after.png"); plt.close(fig)
 df = pd.DataFrame(rows); df.to_csv("figures/model_scenarios.csv", index=False)
 print(df[["scenario", "boil_over", "t_overflow_s", "t_first_boil_s", "alarm_lead_s"]].to_string(index=False))
 

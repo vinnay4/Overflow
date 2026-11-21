@@ -1,3 +1,9 @@
+# Demo video
+
+The file `Ubaal_demo.mp4` (1 min 11 s, 1600×900, captions, no audio) is a screen recording of the deck, the model, and the Ubaal test alarm. It is not a milk boil. Re-record with `node record_demo.mjs` while `python3 -m http.server 8765` is running in this pack.
+
+Original storyboard, for a later cut once kitchen footage exists:
+
 # Demo video: ≤ 2:00 (target 1:50). Vertical or 16:9; captions burned in; no music needed
 
 | Time | Visual | Voice-over / caption |

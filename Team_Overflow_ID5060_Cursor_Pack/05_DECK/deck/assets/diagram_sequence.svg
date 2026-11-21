@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 250" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="980" height="250" fill="#ffffff"/>
+  <g font-size="15" font-weight="700" fill="#1F2A33">
+    <text x="24" y="28">1 · Calm</text>
+    <text x="344" y="28">2 · Skin</text>
+    <text x="664" y="28">3 · Over the rim</text>
+  </g>
+  <g font-size="13" fill="#6b6357">
+    <text x="24" y="48">minutes, no foam</text>
+    <text x="344" y="48">whey denatures &gt; 70 °C</text>
+    <text x="664" y="48">seconds, not minutes</text>
+  </g>
+  <!-- pots -->
+  <g stroke="#44403c" stroke-width="6" fill="#fafaf9">
+    <path d="M40 80 h180 v120 h-180z"/>
+    <path d="M360 80 h180 v120 h-180z"/>
+    <path d="M680 80 h180 v120 h-180z"/>
+  </g>
+  <g fill="#fff7ed">
+    <rect x="46" y="150" width="168" height="44"/>
+    <rect x="366" y="140" width="168" height="54"/>
+    <rect x="686" y="150" width="168" height="44"/>
+  </g>
+  <path d="M366 140 q28 -6 56 0 t56 0 t56 0" fill="none" stroke="#b45309" stroke-width="3"/>
+  <g fill="#fff" stroke="#e7e5e4">
+    <circle cx="760" cy="120" r="12"/><circle cx="800" cy="108" r="14"/><circle cx="836" cy="124" r="11"/>
+    <circle cx="790" cy="78" r="13"/><circle cx="830" cy="70" r="15"/>
+  </g>
+  <line x1="670" y1="80" x2="870" y2="80" stroke="#b91c1c" stroke-dasharray="5 4"/>
+  <text x="24" y="230" font-size="13" fill="#6b6357">Illustration of the causal chain. Timestamps and a ruler come from a home video we have not recorded.</text>
+</svg>

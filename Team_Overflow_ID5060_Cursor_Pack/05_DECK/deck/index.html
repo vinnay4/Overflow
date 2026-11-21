@@ -14,19 +14,22 @@
   <div class="kicker">ID5060 · First Principles Tools · Term Project</div><div class="num">01 / 06</div>
   <div class="row" style="gap:48px">
     <div class="col" style="flex:1.35">
-      <h1>Milk boils over.<br/>We made the pot<br/>tell you first.</h1>
+      <h1>Milk boils over.<br/>The pot can<br/>say so first.</h1>
       <p class="lede">Milk sits calm for three minutes, then climbs over the rim in seconds. Every common fix needs someone standing at the stove. We rebuilt the problem from first principles. The fix is not a better pot. It is a phone that listens.</p>
       <div class="row" style="margin-top:30px;gap:18px">
         <div class="card col"><div class="label">User need</div><p>Get 250–500 mL of packaged milk to a full boil on a gas or induction stove at home, <b>without watching the pot</b>.</p></div>
-        <div class="card col"><div class="label">Baseline (measured)</div>
-          <div class="tofill" style="min-height:120px;font-size:17px">TO FILL: first bubble → overflow = __ s (mean, n = __); boil-overs __/__</div></div>
+        <div class="card col"><div class="label">Baseline</div>
+          <p style="font-size:18px;line-height:1.35"><b>Kitchen:</b> not recorded in this build (n = 0). <span class="tag e">UNTESTED</span></p>
+          <p style="font-size:18px;line-height:1.35"><b>Model, 14 cm pot:</b> first boil to overflow ≈ <b>2.2 s</b>. <span class="tag m">MODEL</span></p>
+          <p class="muted" style="font-size:16px;line-height:1.3">Milk foams over; water at a full boil does not (New Scientist 2020; ATK).</p></div>
         <div class="card col"><div class="label">Target</div><div class="big">0<small> / 10</small></div><p>boil-overs in 10 unattended trials</p></div>
       </div>
       <div style="margin-top:18px"><span class="label">Must stay acceptable:</span>
         <span class="chip">full boil reached</span><span class="chip">no taste change</span><span class="chip">easy to clean</span><span class="chip">cost &lt; ₹300</span></div>
     </div>
     <div class="col" style="flex:1">
-      <div class="tofill" style="height:520px">TO FILL: our own photo or video frame of the boil-over (pot, ruler taped inside, milk on the stove). Shot list: 09_HOME_TRIAL_KIT/TRIAL_PROTOCOL.md</div>
+      <img src="assets/diagram_boilover.svg" alt="Diagram of milk foam crossing the rim of a pot" style="height:430px;width:100%;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:18px"/>
+      <p class="muted" style="font-size:15px;margin-top:6px">Diagram of the failure, not a photograph. Home-trial frames replace it. Protocol: 09_HOME_TRIAL_KIT.</p>
       <div class="card" style="margin-top:18px">
         <div class="label">Team Overflow</div>
         <p><b>Vinay Chekuri</b> · EE22B026 (representative)<br/><b>Vinnay Gupta</b> · ED22B073<br/><b>Atharva Chinchalkar</b> · BS22B010</p>
@@ -34,7 +37,7 @@
     </div>
   </div>
   <div class="foot"><span>Scope: no microwave, no industrial processing, no starchy liquids (from our submitted problem statement)</span><span>AI use declared in appendix</span></div>
-  <aside class="notes">Open with the moment everyone knows: calm milk, then a white wave. Read the need as a measurable outcome: boil-overs in 10 unattended trials, target zero. State the baseline we measured (number of trials, mean seconds from first bubble to overflow). Name the constraints, because every later choice is judged against them. Last line: the punchline is a phone that listens, and the next slides show why that follows from physics.</aside>
+  <aside class="notes">Open with the moment everyone knows: calm milk, then a white wave. The need is a measurable outcome: boil-overs in 10 unattended trials, target zero. Say plainly that the kitchen baseline is not recorded yet, n = 0. The 2.2 seconds is a model estimate for a 14 cm pot with an assumed bubble lifetime, not a measurement. The picture is a diagram, not our photograph. Name the constraints, because every later choice is judged against them.</aside>
 </section>
 
 <!-- ===================== SLIDE 2 ===================== -->
@@ -54,8 +57,14 @@
         <p class="muted" style="font-size:18px;margin-top:10px">Information loop today: eyes → brain → hand on knob. It only works while someone is watching. The pot gives a visible warning only seconds before the spill.</p>
       </div>
       <div class="row" style="margin-top:18px;gap:18px">
-        <div class="tofill col" style="height:250px">TO FILL: 3 frames from our baseline video (calm · foam rising · over the rim) with timestamps and ruler</div>
-        <div class="tofill col" style="height:250px">TO FILL: foam height vs time from baseline video (04_ANALYSIS/foam_fit.py)</div>
+        <div class="col">
+          <img class="fig" src="assets/diagram_sequence.svg" alt="Illustration: calm milk, skin, then foam over the rim" style="height:210px;object-fit:contain;background:#fff"/>
+          <p class="muted" style="font-size:15px">Illustration of the chain. Timed frames need our own video.</p>
+        </div>
+        <div class="col">
+          <img class="fig" src="assets/figures/fig_model_before_after.png" alt="Model foam height with and without Ubaal" style="height:200px;object-fit:contain;background:#fff"/>
+          <p class="muted" style="font-size:15px">Foam vs time for the assumed pot. <span class="tag m">MODEL</span> A measured curve is not in this build.</p>
+        </div>
       </div>
       <div class="card" style="margin-top:18px"><div class="label">How the fix evolved</div>
         <div class="timeline">
@@ -85,7 +94,7 @@
         </table></div>
     </div>
   </div>
-  <aside class="notes">Walk the system map left to right and point to where energy turns into a problem. Then the information loop: the only sensor is a human eye. Show our baseline frames and the foam-height curve, our own field evidence. Evolution: people have attacked the foam (disc, spoon) or added a sensor (whistle, patents, 2026 hobs). Five Whys ends at the root cause: no early, non-visual signal reaches the user. Call the history of the milk watcher a sourced fact. Any guess about why designs changed is labelled as a hypothesis in the appendix.</aside>
+  <aside class="notes">Walk the system map left to right. The only sensor today is a human eye. The three panels are an illustration, and the foam curve is a model, not our video. Say that out loud. Evolution: people attacked the foam, or added a sensor. Five Whys ends at the root cause: no early, non-visual signal reaches the user. The 1938 milk watcher is a sourced museum record. Guesses about why designs changed are labelled as hypotheses in the appendix.</aside>
 </section>
 
 <!-- ===================== SLIDE 3 ===================== -->
@@ -129,7 +138,7 @@
     </div>
   </div>
   <div class="foot"><span>Sources: Engineering ToolBox steam tables · Pugh 2016 (Bikerman Σ) · Singh 2007 (whey) · New Scientist 2020 · Annals FEH 2014 (kettle acoustics)</span><span><span class="tag m">MODEL</span> = estimate from equations, not measured</span></div>
-  <aside class="notes">Five principles, each with a source. Then the key move: dimensional analysis collapses everything into one number, Π, using the Buckingham method from the course. Magnify explains the observation that milk rises in seconds. Scale explains why the bigger-pot advice only half works. Approach a Limit says we only need Π just below 1 at the right moment. Change Frame is the pivot: stop asking how to stop foam, and ask how the pot can warn us early enough. Say clearly that Π values are model estimates from assumed Σ. TO FILL: once measured, say "We measured Σ = __ s from our baseline foam-decay video (appendix)". Until then, say Σ is assumed.</aside>
+  <aside class="notes">Five principles, each with a source. Then the key move: dimensional analysis collapses everything into one number, Π, using the Buckingham method from the course. Magnify explains why milk rises in seconds. Scale explains why a bigger pot only half works: the model needs about 24 cm before Π falls to 1. Approach a Limit says we only need Π just under 1 at the right moment. Change Frame is the pivot: stop asking how to stop foam, and ask how the pot can warn us early enough. Say clearly that Π uses an assumed bubble lifetime of 4.6 seconds. It is not yet fitted to our foam.</aside>
 </section>
 
 <!-- ===================== SLIDE 4 ===================== -->
@@ -167,7 +176,7 @@
         <div class="col"><img class="fig" src="assets/figures/fig_map_cue_response.png"/><p class="muted" style="font-size:16px">Latency budget <span class="tag m">MODEL</span>: an earlier cue leaves more time to respond.</p></div>
         <div class="col"><img class="fig" src="assets/sketch_ubaal.svg"/><p class="muted" style="font-size:16px">Annotated sketch (replace with a hand-drawn version if preferred)</p></div>
       </div>
-      <p style="font-size:20px;margin-top:10px"><b>Why it should work:</b> the alarm comes in the subcooled phase, about 24 s before the boil (model). That is more than our response time plus burner lag. Turning down at that moment gives Π &lt; 1, so foam reaches a steady height below the rim.</p>
+      <p style="font-size:20px;margin-top:10px"><b>Why it should work:</b> in the model the alarm comes in the subcooled phase, 24 s before the boil. That clears the assumed 15 s response. Turning down then drops Π below 1, so the foam settles under the rim. Both times are model estimates.</p>
     </div>
   </div>
   <aside class="notes">Every alternative attacks one term of the same equation. That is what makes the comparison principled and not a list of hacks. Read the weights from our constraints. F wins because it costs nothing, works on gas and induction, and we can test it by 25 November. The disc version (H) is our planned refinement if lead time is too short. Then the reconstruction: five steps, with the key moment at step 3. Read the latency map: the earlier the cue, the more time we have.</aside>
@@ -176,57 +185,63 @@
 <!-- ===================== SLIDE 5 ===================== -->
 <section class="slide" data-title="Build, test method, before/after, refinement">
   <div class="kicker">Evaluate · build · test · refine</div><div class="num">05 / 06</div>
-  <h2>We built it, tested it against the baseline, then changed it once.</h2>
+  <h2>Built and modelled. The kitchen test is still open.</h2>
   <div class="row">
     <div class="col" style="flex:.85">
       <div class="card"><div class="label">What we built</div>
         <div class="row" style="gap:14px">
-          <div class="col"><img class="fig" src="assets/screen_ubaal.png" style="height:330px;object-fit:cover;object-position:top"/><p style="font-size:17px"><b>Ubaal</b> web app: microphone FFT, band energies, state machine, alarm, ground-truth buttons, CSV export.</p></div>
-          <div class="col"><img class="fig" src="assets/screen_sim.png" style="height:330px;object-fit:cover;object-position:top left"/><p style="font-size:17px"><b>Boil-over simulator</b>: energy, skin and foam ODEs. Π live. Toggle every alternative.</p></div>
+          <div class="col"><img class="fig" src="assets/screen_ubaal.png" style="height:210px;object-fit:cover;object-position:top"/><p style="font-size:16px"><b>Ubaal</b> listens, alarms, and logs the trial.</p></div>
+          <div class="col"><img class="fig" src="assets/screen_sim.png" style="height:210px;object-fit:cover;object-position:top left"/><p style="font-size:16px"><b>Simulator</b> runs the energy, skin and foam equations.</p></div>
         </div></div>
       <div class="card" style="margin-top:18px"><div class="label">Test method (same pot, burner, milk, volume)</div>
-        <p style="font-size:19px">Unattended means the tester waits out of sight of the pot and acts only on the app alarm. <b>Baseline:</b> no aid, phone timer only (n = __). <b>Ubaal v1:</b> n = __. <b>v2:</b> n = __. Ground truth comes from video with a ruler inside the pot. Primary metric: boil-overs. Also recorded: lead time, full boil, taste, cleanup.</p></div>
+        <p style="font-size:18px;line-height:1.35">Unattended means the tester stays out of sight and moves only when the alarm sounds. Planned arms: baseline ≥ 3, Ubaal v1 ≥ 5, then v2 only after a frozen config. <b>Run so far: n = 0 milk trials.</b> Ground truth, when it exists, is video with a ruler in the pot. What we did test: the state machine on synthetic audio, and the model on one assumed pot.</p></div>
     </div>
     <div class="col">
       <div class="row" style="gap:18px">
-        <div class="tofill col" style="height:390px">TO FILL with REAL data: fig_trials_boilovers.png (run 04_ANALYSIS/plot_trials.py data/trials.csv). Boil-overs: baseline __/__ vs Ubaal __/__</div>
-        <div class="tofill col" style="height:390px">TO FILL with REAL data: fig_trials_timeline.png. Per trial: alarm, knob down, first bubble, overflow</div>
-      </div>
-      <div class="card" style="margin-top:18px"><div class="label">Refinement v1 → v2 (fill with what actually happened)</div>
-        <div class="row" style="gap:16px">
-          <div class="col"><p style="font-size:19px"><b>Observed in v1:</b> <span class="tofill" style="display:inline-flex;height:auto;padding:4px 8px;font-size:17px">e.g. lead time __ s, too short on the large burner / false alarm from exhaust fan</span></p></div>
-          <div class="col"><p style="font-size:19px"><b>Change:</b> <span class="tofill" style="display:inline-flex;height:auto;padding:4px 8px;font-size:17px">e.g. drop threshold 4 → 3 dB / add disc-rattle cue / fan-noise calibration</span></p></div>
-          <div class="col"><p style="font-size:19px"><b>Result:</b> <span class="tofill" style="display:inline-flex;height:auto;padding:4px 8px;font-size:17px">v2 boil-overs __/__, mean lead __ s</span></p></div>
+        <div class="col">
+          <img class="fig" src="assets/figures/fig_model_before_after.png" alt="Model comparison of baseline and Ubaal" style="height:220px;object-fit:contain;background:#fff"/>
+          <p style="font-size:16px;margin-top:6px"><b>Model, same pot:</b> baseline crosses the rim 2.2 s after first boil. Ubaal’s cue at 88 °C leaves a 24 s lead and foam stops near 52% of the headroom. <span class="tag m">MODEL</span></p>
         </div>
-        <p class="muted" style="font-size:16px;margin-top:8px">If v1 already met the target, we keep it and show the evidence for keeping it (rubric allows this).</p></div>
+        <div class="col card" style="padding:16px 18px">
+          <div class="label">Kitchen before / after</div>
+          <p style="font-size:18px;line-height:1.35"><b>Not measured.</b> Boil-overs baseline —/— vs Ubaal —/—. The primary outcome, 0 of 10 unattended boil-overs, is <b>untested</b>.</p>
+          <p style="font-size:17px;line-height:1.35;margin-top:8px"><b>Logic tests, synthetic audio:</b> 3 of 3. Hiss → PRE-BOIL, then BOILING. Disc rattle → BOILING. Steady noise → no alarm. These check the code, not milk. <span class="tag e">LOGIC</span></p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px"><div class="label">Refinement · kept the starting config</div>
+        <div class="row" style="gap:16px">
+          <div class="col"><p style="font-size:17px;line-height:1.3"><b>What we could see:</b> no labelled kitchen recording, so there is no v1 miss or false alarm to fix.</p></div>
+          <div class="col"><p style="font-size:17px;line-height:1.3"><b>What we kept:</b> drop 4 dB, peak held 5 s, 8 s noise calibration. Tuning on synthetic audio would fake a refinement.</p></div>
+          <div class="col"><p style="font-size:17px;line-height:1.3"><b>Next change:</b> one noise-only clip and one boil, then search dropDb and minPeakHoldS for the longest lead with zero false alarms.</p></div>
+        </div></div>
     </div>
   </div>
-  <aside class="notes">Show the two things we built. The app is the solution prototype. The simulator is our reasoning tool. Define "unattended" precisely, because the whole test depends on it. Show the before and after bars with the actual counts, and say the n. Walk one timeline row: alarm, knob down, first bubble, no overflow. Then the refinement: what failed or was weak in v1, what we changed, and what changed in v2. If something failed, say so plainly. The rubric rewards an honest failed trial with sound reasoning.</aside>
+  <aside class="notes">Show the two things we built. Define unattended, then say the kitchen n is zero. The before-and-after chart is a model on one assumed pot: baseline crosses the rim, the 88 degree cue does not. The 3-of-3 result is a logic test on synthetic audio. Do not call it a milk trial. The refinement is that we refused to retune thresholds without a recording. The rubric rewards that honesty.</aside>
 </section>
 
 <!-- ===================== SLIDE 6 ===================== -->
 <section class="slide" data-title="Benefits, cost, limitations, next, references">
-  <div class="kicker">Measured benefits · cost · trade-offs · limits · next</div><div class="num">06 / 06</div>
+  <div class="kicker">Benefits · cost · trade-offs · limits · next</div><div class="num">06 / 06</div>
   <h2>What changed, what it cost, and what we still don't know.</h2>
   <div class="row">
     <div class="col">
       <div class="row" style="gap:18px">
-        <div class="card col"><div class="label">Boil-overs, unattended</div><div class="tofill" style="height:120px;font-size:30px">__/__ → __/__</div><span class="tag r">MEASURED</span></div>
-        <div class="card col"><div class="label">Warning before boil</div><div class="tofill" style="height:120px;font-size:30px">__ s (range __–__)</div><span class="tag r">MEASURED</span></div>
+        <div class="card col"><div class="label">Boil-overs, unattended</div><div class="big" style="font-size:52px">n = 0</div><p style="font-size:17px">Target stays 0/10. No kitchen count yet. <span class="tag e">UNTESTED</span></p></div>
+        <div class="card col"><div class="label">Warning before boil</div><div class="big" style="font-size:52px">24<small> s</small></div><p style="font-size:17px">If the cue is at 88 °C and the turn-down takes 15 s. <span class="tag m">MODEL</span></p></div>
         <div class="card col"><div class="label">Cost</div><div class="big">₹0<small> app</small></div><p style="font-size:18px">+ ₹295 optional disc (Amazon.in, 21 Nov 2026). Under the ₹300 limit.</p></div>
       </div>
       <div class="card" style="margin-top:18px"><div class="label">Trade-offs</div>
         <ul style="padding-left:24px">
-          <li>The boil after turn-down is slower (model +~26 s at a 92 °C rule). <span class="tag m">MODEL</span></li>
+          <li>An earlier turn-down (the 92 °C rule) delays the boil by about 26 s. Ubaal’s later cue delays it by about 3 s in the same model. <span class="tag m">MODEL</span></li>
           <li>The phone must sit near the stove, with the microphone not covered.</li>
           <li>On gas, a person still turns the knob. The app replaces <i>watching</i>, not acting.</li>
           <li>False alarms possible from pressure-cooker whistles, exhaust fans, or a second pot.</li>
         </ul></div>
       <div class="card" style="margin-top:18px"><div class="label">Limitations (measured vs estimated)</div>
         <ul style="padding-left:24px">
-          <li>Few trials, one kitchen, one pot type. The result may not generalise.</li>
-          <li>Π, Σ and all simulator outputs are <b>estimates</b>. Σ was fitted from __ trials.</li>
-          <li>Synthetic audio tests prove only that the code logic works, not the physics.</li>
+          <li>No unattended milk trials yet, so the primary outcome is untested. One assumed pot only.</li>
+          <li>Π, Σ and every simulator curve are <b>estimates</b>. Σ = 4.6 s is assumed (0.6 + 4.0), not fitted.</li>
+          <li>Synthetic audio tests prove the code’s state machine, not the sound of milk.</li>
         </ul></div>
     </div>
     <div class="col" style="flex:.85">
@@ -246,15 +261,15 @@
         </ol></div>
     </div>
   </div>
-  <div class="foot"><span>Full references, raw data, calculations and contributions in the 4-page evidence appendix</span><span>Team Overflow · ID5060 · Nov 2026</span></div>
-  <aside class="notes">Lead with the measured numbers only: boil-overs before and after, and the warning lead time. Then cost: zero for the app, plus an optional disc under ₹300. Be candid on trade-offs and limitations, and keep measured and estimated apart. That is what the rubric checks. Close on the next step: on induction the loop can close without a human, which turns this prototype into the 2026 commercial hobs, built from a phone.</aside>
+  <div class="foot"><span>References, calculations and contributions are in the appendix. Kitchen rows are not in it yet.</span><span>Team Overflow · ID5060 · Nov 2026</span></div>
+  <aside class="notes">Lead with the hole: boil-overs are untested, n = 0, target still 0 of 10. The 24 second warning is a model lead, not a measured one. Cost is zero for the app, plus an optional disc under 300 rupees. Keep measured, model, and logic tests apart. Close on the next step: record the trials, then, on induction, cut the power without a person in the loop.</aside>
 </section>
 
 </div>
 <div class="nav">← → to navigate · P = print/PDF</div>
 <script>
 const slides=[...document.querySelectorAll('.slide')];let i=0;
-const q=new URLSearchParams(location.search);if(q.get('slide'))i=Math.max(0,Math.min(slides.length-1,+q.get('slide')-1));
+const q=new URLSearchParams(location.search);if(q.get('slide'))i=Math.max(0,Math.min(slides.length-1,+q.get('slide')-1));if(q.get('shot'))document.body.classList.add('shot');
 function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);slides.forEach(el=>el.style.transform=`translate(-50%,-50%) scale(${s})`)}
 function show(n){i=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('on',k===i));history.replaceState(null,'','?slide='+(i+1))}
 addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(i+1);if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);if(e.key==='p'||e.key==='P')print()});

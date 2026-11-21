@@ -8,7 +8,7 @@ D.A.R.E. mapping: S2 = Deconstruct, S3 = Analyze, S4 = Reconstruct, S5–S6 = Ev
 **Headline:** Milk boils over. We made the pot tell you first.
 - Lede: Milk sits calm for three minutes, then climbs over the rim in seconds. Every common fix needs someone standing at the stove.
 - User need: get 250–500 mL packaged milk to a full boil on gas or induction at home **without watching the pot**.
-- **Baseline (MEASURED):** first bubble → overflow = __ s (mean, n = __); boil-overs __/__. ← from `trials.csv` baseline rows
+- **Baseline:** kitchen n = 0 (UNTESTED). Model, 14 cm pot: first boil → overflow ≈ 2.2 s (MODEL). Do not tag the model number as measured.
 - **Target:** 0/10 boil-overs in 10 unattended trials. Must stay acceptable: full boil, no taste change, easy to clean, < ₹300.
 - Photo: OUR boil-over frame (pot, ruler, foam over the rim).
 - Team box: names + roll numbers; "AI use declared in appendix".
@@ -48,7 +48,7 @@ D.A.R.E. mapping: S2 = Deconstruct, S3 = Analyze, S4 = Reconstruct, S5–S6 = Ev
 
 ## Slide 6 · Evaluate: benefits, cost, trade-offs, limits, next, references
 **Headline:** What changed, what it cost, and what we still don't know.
-- KPI tiles: boil-overs __/__ → __/__ (MEASURED); warning lead __ s (MEASURED); cost ₹0 (+ ₹295 optional disc).
+- KPI tiles: boil-overs n = 0, target still 0/10 (UNTESTED); warning lead 24 s at an 88 °C cue (MODEL); cost ₹0 (+ ₹295 optional disc).
 - Trade-offs: slower boil after turn-down (MODEL +~26 s); phone placement; a human still turns the knob on gas; false alarms.
 - Limitations: few trials, one kitchen; Π and Σ are estimates; synthetic tests prove logic, not physics.
 - Next step: close the loop on induction (relay/hob API) + an on-device classifier.

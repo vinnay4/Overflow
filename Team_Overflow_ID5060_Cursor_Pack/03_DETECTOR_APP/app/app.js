@@ -1,4 +1,5 @@
 import { BoilDetector } from "./core.js";
+import { alertCopy, alertLang } from "./alerts.js";
 
 const $ = (s) => document.querySelector(s);
 let ctx, analyser, src, stream, rec, chunks = [], det, timer, t0, wakeLock;
@@ -21,7 +22,11 @@ function alertUser(ev) {
   beep(urgent ? 6 : 3, urgent ? 1318 : 988);
   navigator.vibrate?.(urgent ? [400, 150, 400, 150, 400] : [250, 100, 250]);
   if ($("#speak").checked && "speechSynthesis" in window) {
-    speechSynthesis.speak(new SpeechSynthesisUtterance(urgent ? "Milk is boiling. Turn the flame down now." : "Milk is about to boil. Turn the flame to sim."));
+    const hindi = $("#hindi").checked;
+    const u = new SpeechSynthesisUtterance(alertCopy(urgent, hindi));
+    u.lang = alertLang(hindi);
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
   }
   if ("Notification" in window && Notification.permission === "granted") new Notification("Ubaal", { body: ev.msg });
 }
@@ -107,4 +112,10 @@ document.querySelectorAll(".labels button").forEach(b => b.onclick = () => {
 });
 $("#start").onclick = () => start().catch(e => { $("#msg").textContent = "Microphone blocked: " + e.message + " (open over https or localhost)"; });
 $("#stop").onclick = stop;
+$("#testAlarm").onclick = () => {
+  const hindi = $("#hindi").checked;
+  setState("PRE_BOIL", "Test alarm — not a real boil. " + alertCopy(false, hindi));
+  alertUser({ type: "PRE_BOIL", msg: "Test alarm. This is not a boil." });
+  if (!timer) setTimeout(() => { if (!timer) setState("idle", "Press Start, then light the stove."); }, 2800);
+};
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

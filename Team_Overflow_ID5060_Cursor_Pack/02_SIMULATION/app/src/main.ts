@@ -3,6 +3,7 @@ import { drawChart } from "./chart";
 import { drawPot } from "./pot";
 import { renderTransformers } from "./transformers";
 import { renderAssumptions } from "./assumptions";
+import { parseTrialsCsv, measuredMarkers, Marker, TrialMark } from "./trials";
 
 type Num = { key: keyof Params; label: string; min: number; max: number; step: number; unit: string; note: string; group: string };
 const NUMS: Num[] = [
@@ -28,6 +29,8 @@ const TOGS: Tog[] = [
 let P: Params = { ...DEFAULTS };
 let R: Result = simulate(P);
 let playing = false, playT = 0, lastFrame = 0;
+let trialRows: TrialMark[] = [];
+let measured: Marker[] = [];
 
 const $ = <T extends HTMLElement>(s: string) => document.querySelector(s) as T;
 
@@ -104,6 +107,7 @@ function renderCharts() {
   if (ev.knobChange !== null) mk.push({ x: ev.knobChange, label: "knob ↓", color: "#1d4ed8" });
   if (ev.firstBoil !== null) mk.push({ x: ev.firstBoil, label: "boil", color: "#57534e" });
   if (ev.overflow !== null) mk.push({ x: ev.overflow, label: "OVERFLOW", color: "#b91c1c" });
+  for (const m of measured) mk.push(m);
   const xMax = s.t[s.t.length - 1];
   drawChart($("#cT") as HTMLCanvasElement, [
     { x: s.t, y: s.T, color: "#C2410C", label: "milk T (°C)" },
@@ -174,7 +178,64 @@ $("#play").onclick = () => {
   playT = (parseFloat((e.target as HTMLInputElement).value) / 1000) * R.series.t[R.series.t.length - 1];
   renderPotAt(playT);
 };
+function setImportNote(text: string) {
+  $("#importNote").textContent = text;
+}
+function applyTrial(id: string) {
+  const t = trialRows.find((row) => row.id === id);
+  measured = t ? measuredMarkers(t) : [];
+  const bits = measured.map((m) => `${m.label.replace("measured ", "")} ${m.x.toFixed(1)} s`);
+  setImportNote(t ? `Overlay ${t.id}${t.condition ? " · " + t.condition : ""}: ${bits.join(" · ") || "no timed events in this row"}. Green marks are measured. The curves stay MODEL.` : "");
+  rerun();
+}
+function loadTrialsFile(file: File) {
+  const reader = new FileReader();
+  reader.onload = () => {
+    const parsed = parseTrialsCsv(String(reader.result ?? ""));
+    trialRows = parsed.trials.filter((t) => measuredMarkers(t).length > 0);
+    const sel = $<HTMLSelectElement>("#trialPick");
+    sel.innerHTML = trialRows.map((t) => `<option value="${t.id}">${t.id}${t.condition ? " · " + t.condition : ""}</option>`).join("");
+    sel.hidden = trialRows.length === 0;
+    const skip = parsed.skippedExample ? ` Skipped ${parsed.skippedExample} example row(s).` : "";
+    if (!trialRows.length) {
+      measured = [];
+      setImportNote("No measured event times in that file." + skip);
+      rerun();
+      return;
+    }
+    applyTrial(trialRows[0].id);
+    if (skip) setImportNote($("#importNote").textContent + skip);
+  };
+  reader.readAsText(file);
+}
+function exportChartsPng() {
+  const canvases = ["cT", "cFill", "cPi"].map((id) => $<HTMLCanvasElement>(`#${id}`));
+  const w = Math.max(...canvases.map((c) => c.width));
+  const banner = 56;
+  const out = document.createElement("canvas");
+  out.width = w;
+  out.height = banner + canvases.reduce((sum, c) => sum + c.height, 0);
+  const g = out.getContext("2d");
+  if (!g) return;
+  g.fillStyle = "#FAF7F0";
+  g.fillRect(0, 0, out.width, out.height);
+  g.fillStyle = "#1F2A33";
+  g.font = "28px ui-sans-serif, system-ui, sans-serif";
+  g.fillText("MODEL estimates — Team Overflow milk simulator. Green marks, if any, are imported measurements.", 16, 36);
+  let y = banner;
+  for (const c of canvases) { g.drawImage(c, 0, y); y += c.height; }
+  const a = document.createElement("a");
+  a.href = out.toDataURL("image/png");
+  a.download = "ubaal-model-charts.png";
+  a.click();
+}
 buildControls(); syncInputs(); rerun(); renderAssumptions($("#assump"));
+$<HTMLInputElement>("#importTrial").onchange = (e) => {
+  const file = (e.target as HTMLInputElement).files?.[0];
+  if (file) loadTrialsFile(file);
+};
+$<HTMLSelectElement>("#trialPick").onchange = (e) => applyTrial((e.target as HTMLSelectElement).value);
+$("#exportPng").onclick = () => exportChartsPng();
 window.addEventListener("resize", () => rerun());
 const h = location.hash.replace("#", "");
 if (h) (document.querySelector(`nav button[data-tab="${h}"]`) as HTMLButtonElement | null)?.click();

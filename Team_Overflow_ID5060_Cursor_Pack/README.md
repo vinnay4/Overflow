@@ -7,6 +7,9 @@ Due **25 Nov 2026**. Team: Vinay Chekuri EE22B026 (rep.), Vinnay Gupta ED22B073,
 2. Most of the work is **already built and tested**. Cursor's job is to polish, connect real data, and export. The team's job is **one evening of real trials** (`09_HOME_TRIAL_KIT/TRIAL_PROTOCOL.md`).
 3. **Golden rule:** nothing synthetic or modelled may be shown as measured. Model numbers are tagged MODEL. Example data files are prefixed `EXAMPLE_`. Placeholders say TO FILL or `__`.
 
+## What this build can be submitted as
+The six-slide deck, the two-page appendix, and a 71-second demo of the app and the model are exported (see the root README). Kitchen trials were not run. Every unmeasured result is labelled untested, and model numbers are labelled MODEL. Do not replace those labels with invented counts.
+
 ## The story in 6 lines
 1. **Baseline:** milk sits calm for ~3 min, then overflows within seconds of the first bubble. Every fix needs someone watching (our deck; measure n = 3–5).
 2. **Deconstruct (Five Whys):** the root cause is not the milk but the **sensor**. The only early-warning loop is a human eye, and the visible cue comes ~1 s before the spill.
